@@ -9,15 +9,15 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 
 	>> Nikhil Anand(nanand2)
 
+#Snapshots
+1. Repository Structure.
 
-#Snapshots of the top level of our repo
+	![soemTExt](./hw/code/1/images/Repo-struct.png)
 
-![soemTExt](./hw/code/1/images/Repo-struct.png)
+2. python, pip and easy_install installation
 
-#Snapshots for : python, pip and easy_install
+	![soemTExt](./hw/code/1/images/Python-pip-help.png)
 
-![soemTExt](./hw/code/1/images/Python-pip-help.png)
-
-![soemTExt](./hw/code/1/images/Easy_install.png)
+	![soemTExt](./hw/code/1/images/Easy_install.png)
 
 
