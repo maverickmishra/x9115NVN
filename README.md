@@ -1,13 +1,13 @@
 # x9115NVN
-CSC 591 - MASE Repo
+CSC 591 (Automated Software Engineering)- Repository for MASE
 
 Collaborators :
 
-Nikhil Satish Pai
+	>> Nikhil Satish Pai(npai)
 
-Vishal Mishra
+	>> Vishal Mishra(vmishra)
 
-Nikhil Anand
+	>> Nikhil Anand(nanand2)
 
 
 #snapshots of the top level of our repo
