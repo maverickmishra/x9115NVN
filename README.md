@@ -1,7 +1,7 @@
 # x9115NVN
 CSC 591 (Automated Software Engineering)- Repository for MASE
 
-Collaborators :
+#Collaborators :
 
 	>> Nikhil Satish Pai(npai)
 
@@ -10,11 +10,11 @@ Collaborators :
 	>> Nikhil Anand(nanand2)
 
 
-#snapshots of the top level of our repo
+#Snapshots of the top level of our repo
 
 ![soemTExt](./hw/code/1/images/Repo-struct.png)
 
-#snapshots for : python, pip and easy_install
+#Snapshots for : python, pip and easy_install
 
 ![soemTExt](./hw/code/1/images/Python-pip-help.png)
 
