@@ -1,5 +1,5 @@
 # x9115NVN
-CSC 591 (Automated Software Engineering)- MASE Repository for MASE
+CSC 591 (Automated Software Engineering)- Repository for MASE
 
 Collaborators :
 
