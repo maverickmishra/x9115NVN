@@ -19,8 +19,12 @@ def _ok3():
   assert 3==3 
 
 @ok
+def _ok5():
+  assert 5==5 
+
+@ok
 def _ok4():
-  assert unittest.tries==4
+  assert unittest.tries==5
   assert unittest.fails==1
   print unittest.score() 
 
