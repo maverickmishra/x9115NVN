@@ -9,18 +9,14 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 
 	>> Nikhil Anand(nanand2)
 
-#Snapshots
-Homework 1:
+#Homework 1:
+##Snapshots
 
-#Snapshots
 1. Repository Structure.
 
 	![soemTExt](./images/Repo-struct.png)
 
-2. References:  
-   http://stackoverflow.com/questions/4142151/python-how-to-import-the-class-within-the-same-directory-or-sub-directory 
-
-3. python, pip and easy_install installation
+2. python, pip and easy_install installation
 
    ![soemTExt](./images/Python-pip-help.png)
 
@@ -29,3 +25,5 @@ Homework 1:
 3. Screenshot of updated unit test in okok.py using vim  
    ![soemTExt](./images/test_case.png)
 
+4. References:  
+   http://stackoverflow.com/questions/4142151/python-how-to-import-the-class-within-the-same-directory-or-sub-directory 
