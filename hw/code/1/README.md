@@ -7,9 +7,9 @@ Homework 1:
 
 2. python, pip and easy_install installation
 
-   ![soemTExt](/hw/code/1/images./images/Python-pip-help.png)
+   ![soemTExt](./images/Python-pip-help.png)
 
-   ![soemTExt](.code/images/Easy_install.png)
+   ![soemTExt](./images/Easy_install.png)
 
 3. Screenshot of updated unit test in okok.py using vim  
    ![soemTExt](./images/test_case.png)
