@@ -2,13 +2,13 @@
 CSC 591 - MASE Repo
 Homework 1:
 
-1. References:
+1. References:  
    http://stackoverflow.com/questions/4142151/python-how-to-import-the-class-within-the-same-directory-or-sub-directory 
 
 2. python, pip and easy_install installation
 
-        ![soemTExt](./hw/code/1/images/Python-pip-help.png)
+   ![soemTExt](./hw/code/1/images/Python-pip-help.png)
 
-        ![soemTExt](./hw/code/1/images/Easy_install.png)
+   ![soemTExt](./hw/code/1/images/Easy_install.png)
 
 
