@@ -65,7 +65,7 @@ def print_somevalue (value):
      print value
 
 def print_twice(value):
-    print"print_twice funcation called..."
+    print"print_twice function called..."
     print value
     print value
     
