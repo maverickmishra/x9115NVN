@@ -21,15 +21,15 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 #Homework 2:
 ##Exercise 3.1
        
-       ![soemTExt](./images/exercise_3_1.png)
+![soemTExt](./images/exercise_3_1.png)
 
 ##Exercise 3.2
        
-       ![soemTExt](./images/exercise_3_2.png)
+![soemTExt](./images/exercise_3_2.png)
        
 ##Exercise 3.3
        
-       ![soemTExt](./images/exercise_3_3.png)
+![soemTExt](./images/exercise_3_3.png)
        
 ##Exercise 3.4
 
@@ -50,7 +50,7 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
        
 ##Exercise 3.5
        
-       ![soemTExt](./images/exercise_3_5.png)
+![soemTExt](./images/exercise_3_5.png)
 
 
 Reference: 
