@@ -40,7 +40,7 @@ print "********"
 
 Frame = TurtleWorld()
 Cursor = Turtle()
-flower (Cursor,100,60,7)
+flower (Cursor,60,60,7)
 
 print "********"
 print "FLOWER 2"
@@ -48,7 +48,7 @@ print "********"
 
 Frame = TurtleWorld()
 Cursor = Turtle()
-flower (Cursor,100,80,10)
+flower (Cursor,60,80,10)
 
 print "********"
 print "FLOWER 3"
@@ -56,7 +56,7 @@ print "********"
 
 Frame = TurtleWorld()
 Cursor = Turtle()
-flower (Cursor,100,20,20)
+flower (Cursor,100,45,20)
 
 
 wait_for_user()

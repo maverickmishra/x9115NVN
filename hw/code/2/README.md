@@ -46,3 +46,4 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 
 Reference: 
 [1] http://stackoverflow.com/questions/1402048/how-do-i-right-align-numeric-data-in-python
+[2] http://www.mathopenref.com/polygonsides.html
