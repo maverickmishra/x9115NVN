@@ -21,7 +21,7 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 
 3. 5 and 7 card hand probability  
 
-   ![soemTExt](./images/poker_out.png)
+   ![soemTExt](./images/poker_pout.png)
 
 5. References:  
    https://en.wikipedia.org/wiki/List_of_poker_hands#cite_note-7cardprobref-6  	
