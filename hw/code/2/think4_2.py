@@ -15,10 +15,6 @@ def polyline(t, n, length, angle):
         fd(t, length)
         lt(t, angle)
 
-def polygon(t, n, length):
-    angle = 360.0 / n
-    polyline(t, n, length, angle)
-
 def arc(t, r, angle):
     arc_length = 2 * math.pi * r * angle / 360
     n = int(arc_length / 3) + 1
@@ -26,12 +22,12 @@ def arc(t, r, angle):
     step_angle = float(angle) / n
     polyline(t, n, step_length, step_angle)
 
-
 def flower(Cursor,RADpetal,ANGpetal,NUMpetal):
     for i in range(NUMpetal):
 	arc(Cursor, RADpetal, ANGpetal)
-	lt(Cursor,180 - ANGpetal)
+	lt(Cursor,180.0 - ANGpetal)
 	arc(Cursor, RADpetal, ANGpetal)
+        lt(Cursor,180.0 - ANGpetal)
 	lt(Cursor, 360.0/NUMpetal)
 
 print "********"
@@ -40,7 +36,7 @@ print "********"
 
 Frame = TurtleWorld()
 Cursor = Turtle()
-flower (Cursor,60,60,7)
+flower (Cursor,100,50,7)
 
 print "********"
 print "FLOWER 2"
@@ -56,8 +52,7 @@ print "********"
 
 Frame = TurtleWorld()
 Cursor = Turtle()
-flower (Cursor,100,45,20)
-
+flower (Cursor,180,20,20)
 
 wait_for_user()
 time.sleep(10) 
