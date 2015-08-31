@@ -16,10 +16,10 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 
 	![soemTExt](./images/class.png)
 
-2. Expected probability from Wikipedia
+2. Expected probability from Wikipedia  
    ![soemTExt](./images/poker_prob.png)
 
-3. 5 and 7 card hand probability
+3. 5 and 7 card hand probability  
 
    ![soemTExt](./images/poker_out.png)
 
