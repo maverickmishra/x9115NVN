@@ -1,7 +1,7 @@
 #Exercise on Employee class
 import os
 
-os.system('clear')
+##os.system('clear')
 
 class Employee(object):
     def __init__(self,name,age):
@@ -14,10 +14,13 @@ class Employee(object):
                    
     def __lt__(self,other):
         return (self.age < other.age)
+        
+    def __eq__(self,other):
+        return (self.age == other.age)
 
 # Test for __init__
 emp1 = Employee("Nikhil",25)
-emp2 = Employee("Vishal",33)
+emp2 = Employee("Vishal",30)
 
 # Test for __repr__
 print emp1
@@ -26,7 +29,6 @@ print empDup.name
 print empDup.age
 
 # Test for __lt__
-print (emp1 < emp2), "expected: True"
-print (emp1 == emp2), "expected: False"
-print (emp1 > emp2), "expected: False"
-print '' 				
+print "Checking less than \nResult: ",(emp1 < emp2), "\nExpected: True"
+print "Checking equal to  \nResult:",(emp1 == emp2), "\nExpected: True"
+print "Checking more than \nResult:",(emp1 > emp2), "\nExpected: False"
