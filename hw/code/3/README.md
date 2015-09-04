@@ -28,5 +28,7 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
    ![soemTExt](./images/poker_pout.png)
 
 5. References:  
+
+   http://stackoverflow.com/questions/1541797/in-python-how-to-check-if-there-are-any-duplicates-in-list
    https://en.wikipedia.org/wiki/List_of_poker_hands#cite_note-7cardprobref-6  	
    
