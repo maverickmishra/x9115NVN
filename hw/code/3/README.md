@@ -14,7 +14,7 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 
 1. Employee Class code and test Output.
 
-	![soemTExt](./images/class.png)
+	![soemTExt](./images/class_emp.png)
 
 2. Expected probability from Wikipedia  
    ![soemTExt](./images/poker_prob.png)
