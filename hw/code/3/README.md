@@ -12,14 +12,18 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 #Homework 3:
 ##Screenshots
 
-1. Employee Class code and test Output.
+1. Birthday Paradox Output
+
+    ![soemTExt](./images/birthday_paradox.png)
+
+2. Employee Class code and test Output.
 
 	![soemTExt](./images/class_emp.png)
 
-2. Expected probability from Wikipedia  
+3. Expected probability from Wikipedia  
    ![soemTExt](./images/poker_prob.png)
 
-3. 5 and 7 card hand probability  
+4. 5 and 7 card hand probability  
 
    ![soemTExt](./images/poker_pout.png)
 
