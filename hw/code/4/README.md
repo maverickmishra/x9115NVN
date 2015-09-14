@@ -12,10 +12,10 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 #Homework 4:
 ##Screenshots
 
-1. Birthday Paradox Output
+1. OUTPUT:
 
     ![soemTExt](./images/schaffer.png)
     
 2. References:  
 
-   ### 	
+   #
