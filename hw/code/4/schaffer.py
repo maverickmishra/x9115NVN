@@ -22,7 +22,7 @@ def simulate_Annealer():
     print "Initial Value: %f" %sInit
     print "Initial eng: %f" %eInit
 
-    while (k < kMax and eInit > eMax):
+    while (k <= kMax and eInit > eMax):
         sNeigh = schaffer_random.random_num()
         eNeigh = schaffer_random.function_Eval(sNeigh,normalizeFlag = True)
 
@@ -49,7 +49,7 @@ def simulate_Annealer():
             print "  |",
             print "".join(printList)
             printList = []
-    print "The best solution is %f:" %sBest
+    print "The best solution is %f" %sBest
 
 simulate_Annealer()    
 
