@@ -8,25 +8,30 @@ sys.dont_write_bytecode = True
 
 #initSeed = 30
 #random.seed(initSeed)
-
 FUNCTION_MIN = 0
 FUNCTION_MAX = 0
+DOMAIN_MIN = -100000
+DOMAIN_MAX = 100000
 	
 def function_Eval(x,normalizeFlag = False):
+    global FUNCTION_MIN
+    global FUNCTION_MAX
     f1 = math.pow(x,2)
     f2 = math.pow((x-2),2)
+    e = (f1+f2)
     if (not normalizeFlag):
-        return (f1+f2)	
+        return 	e
     else:
-        return (((f1+f2) - FUNCTION_MIN)/(FUNCTION_MAX - FUNCTION_MIN))    
+        norm = ((e - FUNCTION_MIN)/(FUNCTION_MAX - FUNCTION_MIN))
+        return norm    
 
 def baseline_study():
-    x = random.random()
+    x = random.uniform(DOMAIN_MIN,DOMAIN_MAX) #random.random()
     global FUNCTION_MIN
     global FUNCTION_MAX
     FUNCTION_MAX = FUNCTION_MIN = function_Eval(x,False)
     for index in range(100):
-        x = random.random()
+        x = random.uniform(DOMAIN_MIN,DOMAIN_MAX) 
         funcOut = function_Eval(x,False)
         if (funcOut < FUNCTION_MIN):
             FUNCTION_MIN = funcOut
@@ -34,15 +39,23 @@ def baseline_study():
             FUNCTION_MAX = funcOut  
 
 def prob(eInit,eNeigh,t):
-    return math.e**((eInit - eNeigh )/t)
+    return math.exp((eInit - eNeigh )/t)
         
         
 def random_num():
-    return(random.random())
+    return random.uniform(0,1)
+    
+def random_number():		
+    x = random.uniform(DOMAIN_MIN,DOMAIN_MAX)
+    return(x)
+    
+def neigh(x):
+    return random.uniform(-10000, 10000) + x
+
 
 if __name__ != "__main__":
     baseline_study()
     print "FUNCTION_MIN",FUNCTION_MIN 
     print "FUNCTION_MAX",FUNCTION_MAX
-#    print "Initial Seed %d" %initSeed
+#   print "Initial Seed %d" %initSeed
 
