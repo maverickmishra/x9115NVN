@@ -26,17 +26,19 @@ def mutateMaxScore(unmutated,c):
     return best
  
 
-def maxWalkSat(maxTries=1000, maxChanges=50, p=0.5, threshold=0.96):
+def maxWalkSat(maxTries=1000, maxChanges=50, p=0.5, threshold=1):
     initVector = osyczka2.generateVector()
     bestVector = list(initVector)
     count = 0
+    printList = []
     for index in xrange(maxTries):
         initVector = osyczka2.generateVector()
         
         for innerIndex in xrange(maxChanges):
-           if (osyczka2.function_Eval(initVector,True) > threshold):
-               print "The best solution is " bestVector
-               print "Energy of the best solution is %f" %function_Eval(initVector)
+           if (osyczka2.function_Eval(initVector,False) > threshold):
+               print "The best solution is", bestVector
+               print "Energy of the best solution", osyczka2.function_Eval(initVector)
+
                quit()
            
            c = osyczka2.randomPart()
@@ -44,26 +46,23 @@ def maxWalkSat(maxTries=1000, maxChanges=50, p=0.5, threshold=0.96):
            mutant = []
            if p < osyczka2.rand():
                mutant = mutateRand(unmutated,c)
-           else
+               printList.append("?") 
+           else:
                mutant = mutateMaxScore(unmutated,c)
+               printList.append("+")
           
            if (osyczka2.function_Eval(bestVector,True) < osyczka2.function_Eval(mutant,True)):
                bestVector = list(mutant)
-               printList.append("?") 
 
            elif (osyczka2.function_Eval(bestVector,True) < osyczka2.function_Eval(initVector,True)):
                bestVector = list(initVector)
-               printList.append("+")
  
-           elif (osyczka2.function_Eval(bestVector,True) > osyczka2.function_Eval(mutant,True)):
-               printList.append("!")
-
            else:
                printList.append(".")
 
            if len(printList) == 40:
                count += 40
-               print count, 
+               print "%03d" %count, 
                print "  |",
                print "?=%02d" %printList.count("?"),"!=%02d" %printList.count("!"),"+=%02d" %printList.count("+"),".=%02d" \
                                %printList.count("."),
@@ -71,13 +70,8 @@ def maxWalkSat(maxTries=1000, maxChanges=50, p=0.5, threshold=0.96):
                print "".join(printList)
                printList = []
     
-    print "Best solution: " bestVector
-    print "Energy :"  osyczka2.function_Eval(bestVector,True)
+    print "Best solution:", bestVector
+    print "Energy Normalized:",  osyczka2.function_Eval(bestVector)
 
 
-
-
-
-
-
-
+maxWalkSat(100, 25, 0.5, 400)

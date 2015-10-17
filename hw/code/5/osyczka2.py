@@ -10,7 +10,7 @@ FUNCTION_MAX = 0
 minVector = [ 0,  0, 1, 0, 1,  0]
 maxVector = [10, 10, 5, 6, 5, 10]
 
-random.seed(30)
+random.seed(8)
 
 def rand():
     return random.random()
@@ -33,8 +33,7 @@ def function_Eval(inputVector,normalizeFlag = False):
     if (not normalizeFlag):
         return e
     else:
-        norm = ((e - FUNCTION_MIN)/(FUNCTION_MAX - FUNCTION_MIN)
-        return norm
+        return ((e - FUNCTION_MIN)/(FUNCTION_MAX - FUNCTION_MIN))
 
 
 def okConstraint(inputVector):
@@ -50,7 +49,8 @@ def okConstraint(inputVector):
         return False
     elif (math.pow((inputVector[4]-3),2) + inputVector[5] - 4 < 0):
         return False
-    return True
+    else:
+        return True
 
                        		
 def okRange(inputVector):
@@ -102,7 +102,7 @@ def baseline_study():
     global FUNCTION_MAX
     inputVector = generateVector()
     FUNCTION_MAX = FUNCTION_MIN = function_Eval(inputVector,False)
-    for index in range(100): 
+    for index in range(10000): 
         inputVector = generateVector()
         funcOut = function_Eval(inputVector,False) 
         if (funcOut < FUNCTION_MIN):
@@ -117,5 +117,5 @@ def randomPart():
 
 if __name__ != "__main__":
     baseline_study() 
-    print "MIN ",FUNCTION_MIN 
+    print "MIN ",FUNCTION_MIN, 
     print "MAX ",FUNCTION_MAX
