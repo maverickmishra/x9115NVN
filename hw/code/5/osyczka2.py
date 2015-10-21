@@ -10,7 +10,7 @@ FUNCTION_MAX = 0
 minVector = [ 0,  0, 1, 0, 1,  0]
 maxVector = [10, 10, 5, 6, 5, 10]
 
-random.seed(8)
+#random.seed(8)
 
 def rand():
     return random.random()

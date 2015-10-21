@@ -26,39 +26,35 @@ def mutateMaxScore(unmutated,c):
     return best
  
 
-def maxWalkSat(maxTries=1000, maxChanges=50, p=0.5, threshold=1):
-    initVector = osyczka2.generateVector()
-    bestVector = list(initVector)
+def maxWalkSat(maxTries=100, maxChanges=50, p=0.5, threshold=1):
+    bestVector = osyczka2.generateVector()
     count = 0
     printList = []
     for index in xrange(maxTries):
         initVector = osyczka2.generateVector()
         
         for innerIndex in xrange(maxChanges):
-           if (osyczka2.function_Eval(initVector,False) > threshold):
-               print "The best solution is", bestVector
-               print "Energy of the best solution", osyczka2.function_Eval(initVector)
-
+           if (osyczka2.function_Eval(initVector,True) > threshold):
+               print "Best solution ", initVector
+               print "Energy ", osyczka2.function_Eval(initVector,True)
                quit()
            
+           if (osyczka2.function_Eval(initVector,True) > osyczka2.function_Eval(bestVector,True)):
+               printList.append("!") 
+               bestVector = list(initVector)
+
            c = osyczka2.randomPart()
            unmutated = list(initVector) 
            mutant = []
            if p < osyczka2.rand():
-               mutant = mutateRand(unmutated,c)
                printList.append("?") 
+               mutant = mutateRand(unmutated,c)
            else:
                mutant = mutateMaxScore(unmutated,c)
-               printList.append("+")
-          
-           if (osyczka2.function_Eval(bestVector,True) < osyczka2.function_Eval(mutant,True)):
-               bestVector = list(mutant)
-
-           elif (osyczka2.function_Eval(bestVector,True) < osyczka2.function_Eval(initVector,True)):
-               bestVector = list(initVector)
- 
-           else:
-               printList.append(".")
+               if (mutant == unmutated):
+                   printList.append(".") 
+               else:
+                   printList.append("+")
 
            if len(printList) == 40:
                count += 40
@@ -71,7 +67,7 @@ def maxWalkSat(maxTries=1000, maxChanges=50, p=0.5, threshold=1):
                printList = []
     
     print "Best solution:", bestVector
-    print "Energy Normalized:",  osyczka2.function_Eval(bestVector)
+    print "Energy Normalized:",  osyczka2.function_Eval(bestVector,True)
 
 
-maxWalkSat(100, 25, 0.5, 400)
+maxWalkSat(100, 50, 0.5, 1)
