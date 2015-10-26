@@ -6,6 +6,4 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 
 	>> Nikhil Satish Pai(npai)
 
-	>> Vishal Mishra(vmishra)
-
 	>> Nikhil Anand(nanand2)
