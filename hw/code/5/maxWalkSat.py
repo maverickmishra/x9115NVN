@@ -2,6 +2,7 @@
 from __future__ import division
 import osyczka2
 
+stepsize = 50
 
 def mutateRand(unmutated,c):
     while True:
@@ -56,9 +57,9 @@ def maxWalkSat(maxTries=100, maxChanges=50, p=0.5, threshold=1):
                else:
                    printList.append("+")
 
-           if len(printList) == 40:
-               count += 40
-               print "%03d" %count, 
+           if len(printList) == stepsize:
+               count += stepsize
+               print "%04d" %count, 
                print "  |",
                print "?=%02d" %printList.count("?"),"!=%02d" %printList.count("!"),"+=%02d" %printList.count("+"),".=%02d" \
                                %printList.count("."),

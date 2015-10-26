@@ -16,6 +16,4 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 
     ![soemTExt](./images/schaffer.png)
     
-2. References:  
 
-   #

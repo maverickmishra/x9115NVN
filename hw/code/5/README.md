@@ -11,3 +11,7 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 ##Screenshots
 
 1. OUTPUT:
+
+    ![soemTExt](./images/osyczka2.png)
+
+
