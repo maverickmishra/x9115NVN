@@ -10,4 +10,28 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 #Homework 6:
 ##Screenshots
 
-1. OUTPUT:
+1. OUTPUTs:
+	 
+	>>ModeL: Schaffer
+	
+	![soemTExt](./images/SimulatedAnnealing-Schaffer.png)
+	
+
+	![soemTExt](./images/MaxWalkSat-Schaffer.png)
+	
+	>>ModeL: Kursawe
+	
+	![soemTExt](./images/SimulatedAnnealing-Kursawe.png)
+	
+	
+	![soemTExt](./images/MaxWalkSat-Kursawe.png)
+	
+	>>ModeL: Osyczka2
+	
+	![soemTExt](./images/SimulatedAnnealing-Osyczka2.png)
+	
+	
+	![soemTExt](./images/MaxWalkSat-Osyczka2.png)
+	
+
+

@@ -1,4 +1,5 @@
 #Max Walk Sat
+
 from __future__ import division
 import osyczka2
 
