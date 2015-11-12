@@ -7,23 +7,23 @@ import numpy
 def DifferentialEvolution(model):
     print "Model: ",model.__name__
 
-    nb=100
+    F=0.75
+    CR=0.3
     maxtries=10
-    f=0.75
-    cr=0.3
+    NumCandidates=100
     best=model()
     candidates=[best]
-    for k in candidates : print "VAlues:",k.x
+    #print "First Candidate Value:",candidates[0].x
     
-    for i in range(1,nb):
-        x=model()
-        candidates.append(x)
-        if x.eval()<best.eval():
-            best=copy.deepcopy(x)
-    print "count :", len(candidates)      
-    #print "BEST BEFORE TRIES :",best.x
+    for i in range(1,NumCandidates):
+        candidate=model()
+        candidates.append(candidate)
+        if candidate.eval()<best.eval():
+            best=copy.deepcopy(candidate)
+    print "Number Of Candidates:", len(candidates)      
+    #print "Best Before TRIES in List of candidates:",best.x
     
-    def mutate(candidates,f,cr,best):
+    def mutate(candidates,F,CR,best):
         for i in range(len(candidates)):
             tmp=range(len(candidates))
             tmp.remove(i)
@@ -39,8 +39,8 @@ def DifferentialEvolution(model):
                 r=random.randint(0,old.decisions-1)
                 new=model()
                 for j in range(old.decisions):
-                    if random.random()<cr or j==r:
-                        new.x[j]=X.x[j]+f*(Y.x[j]-Z.x[j])  #Mutate: X + F*(Y - Z)
+                    if random.random()<CR or j==r:
+                        new.x[j]=X.x[j] + F*(Y.x[j] - Z.x[j])  #Mutate: X + F*(Y - Z)
                     else:
                         new.x[j]=old.x[j]
                 if new.constraints(): break
@@ -50,6 +50,8 @@ def DifferentialEvolution(model):
                 #printList.append (str(best.x)) ##New Best Found
             elif new.eval()<old.eval():
                 printList.append("+")
+            elif new.eval()==old.eval():
+                printList.append("?")
             else:
                 new=old
                 printList.append(".")
@@ -58,15 +60,15 @@ def DifferentialEvolution(model):
 
     for tries in range(maxtries):
         printList = []
-        print "Tries:",tries,
+        print "Try %02d"%(tries+1),
         print "|",
         newcandidates = []
-        for new,best in mutate(candidates,f,cr,best):
+        for new,best in mutate(candidates,F,CR,best):
             newcandidates.append(new)
         candidates = newcandidates
         print "!=%02d" %printList.count("!"),"+=%02d" %printList.count("+"),".=%02d" %printList.count("."),
-        print "  |",
-        print "".join(printList)
+        print "|",
+        print "".join(printList),
 
         print("")
     print "---------------------"

@@ -43,9 +43,9 @@ def MaxWalkSat(model):
             elif s.eval()<score_old:
                 printList.append("+")  
             elif s.eval()==score_old:
-                printList.append(".")  
+                printList.append("?") 
             else:
-                printList.append("?")  
+                printList.append(".") 
 
             count += 1
             if (count % linewidth == 0):        

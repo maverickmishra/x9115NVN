@@ -14,24 +14,18 @@ CSC 591 (Automated Software Engineering)- Repository for MASE
 	 
 	>>ModeL: Schaffer
 	
-	![soemTExt](./images/SimulatedAnnealing-Schaffer.png)
-	
-
-	![soemTExt](./images/MaxWalkSat-Schaffer.png)
+	![soemTExt](./images/DE-Schaffer.png)
 	
 	>>ModeL: Kursawe
 	
-	![soemTExt](./images/SimulatedAnnealing-Kursawe.png)
-	
-	
-	![soemTExt](./images/MaxWalkSat-Kursawe.png)
+	![soemTExt](./images/DE-Kursawe.png)
 	
 	>>ModeL: Osyczka2
 	
-	![soemTExt](./images/SimulatedAnnealing-Osyczka2.png)
+	![soemTExt](./images/DE-Osyczka2.png)
 	
+	>>ModeL: Golinski
 	
-	![soemTExt](./images/MaxWalkSat-Osyczka2.png)
-	
+	![soemTExt](./images/DE-Golinski.png)
 
 
