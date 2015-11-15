@@ -13,8 +13,8 @@ random.seed(initSeed)
 
 
 if __name__ == '__main__':
-    for model in [Golinski]:
-        for Algorithm in [de]:
+    for model in [Schaffer,Kursawe,Osyczka2,Golinski]:
+        for Algorithm in [sa, mws, de]:
             print "###################################################################################"
             print "Algorithm: %s " %Algorithm.__name__
             print "Model    : %s " %model.__name__
