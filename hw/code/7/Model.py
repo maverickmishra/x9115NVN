@@ -116,6 +116,38 @@ class Golinski(Model):
         return [f1,f2]
 
 
+
+    def constraints(self):
+        a = 745 * (self.x[4] / (self.x[1] * self.x[2]))
+        b = 1.575 * (10 ** 8)
+
+        if (((1.0 / (self.x[0] * (self.x[1] ** 2) * self.x[2])) - (1.0 / 27)) > 0):
+            return False
+        elif (((self.x[3] ** 3) / (self.x[1] * (self.x[2] ** 2) * (self.x[5] ** 4))) - (1 / 1.93) > 0):
+            return False
+        elif (((self.x[4] ** 3) / (self.x[1] * self.x[2] * (self.x[6] ** 4))) - (1 / 1.93) > 0):
+            return False
+        elif ((self.x[1] * self.x[2]) - 40 > 0):
+            return False
+        elif ((self.x[0] / self.x[1]) - 12 > 0):
+            return False
+        elif (5 - (self.x[0] / self.x[1]) > 0):
+            return False
+        elif (1.9 - self.x[3] + 1.5 * self.x[5] > 0):
+            return False
+        elif (1.9 - self.x[4] + 1.1 * self.x[6] > 0):
+            return False
+        elif (self.getObjectives()[1] > 1300):
+            return False
+        elif (math.sqrt((a ** 2) + (b ** 2)) / (0.1 * (self.x[2] ** 7)) > 1100):
+            return False
+        else:
+            for i in range(0,self.decisions):
+                if self.x[i]<self.domainMin[i] or self.x[i]>self.domainMax[i] :
+                    return False
+        return True
+
+
 def neighbor(s,index,model):
     sn=model()
     sn=copy.deepcopy(s)

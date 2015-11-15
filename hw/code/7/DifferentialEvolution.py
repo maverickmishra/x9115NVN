@@ -13,7 +13,7 @@ def DifferentialEvolution(model):
     NumCandidates=100
     best=model()
     candidates=[best]
-    #print "First Candidate Value:",candidates[0].x
+    print "First Candidate Value:",candidates[0].x
     
     for i in range(1,NumCandidates):
         candidate=model()
@@ -21,7 +21,7 @@ def DifferentialEvolution(model):
         if candidate.eval()<best.eval():
             best=copy.deepcopy(candidate)
     print "Number Of Candidates:", len(candidates)      
-    #print "Best Before TRIES in List of candidates:",best.x
+    print "Best Before TRIES in List of candidates:",best.x
     
     def mutate(candidates,F,CR,best):
         for i in range(len(candidates)):
