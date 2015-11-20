@@ -4,6 +4,8 @@ import sys
 import random
 import math
 import time
+from functools import reduce
+from pdb improt set_trace
 import bisect
 
 sys.dont_write_bytecode = True
@@ -220,6 +222,10 @@ def bootstrap(inList1, inList2, conf=0.01, boot=1000):
             bigger += 1
     return bigger/b < conf
 
+def different(l1, l2):
+  return a12(l2, l1) and bootstrap(l1, l2)
+
+
 
 def scottknott(data,cohen=0.3,small=3, useA12=False,epsilon=0.01):
   """Recursively split data, maximizing delta of
@@ -302,4 +308,52 @@ def leftRight(parts,epsilon=0.01):
       if parts[i]._median - parts[i-1]._median > epsilon:
         yield i,left,rights[i]
       left += one
-               
+              
+
+def rdivDemo(data):
+  def z(x):
+    return int(100 * (x - lo) / (hi - lo + 0.00001))
+  data = map(lambda lst: Num(lst[0], lst[1:]),
+             data)
+  print ""
+  ranks = []
+  for x in scottknott(data, useA12=True):
+    ranks += [(x.rank, x.median(), x)]
+  all = []
+  for _, __, x in sorted(ranks):
+    all += x.all
+  all = sorted(all)
+  lo, hi = all[0], all[-1]
+  line = "----------------------------------------------------"
+  last = None
+  print ('%4s , %12s ,    %s   , %4s ' %
+         ('rank', 'name', 'med', 'iqr')) + "\n" + line
+  for _, __, x in sorted(ranks):
+    q1, q2, q3 = x.quartiles()
+    print ('%4s , %12s ,    %0.2f  ,  %0.2f ' %
+           (x.rank + 1, x.name, x.median(), x.spread())) + \
+        xtile(x.all, lo=lo, hi=hi, width=30)
+    last = x.rank
+  return ranks
+
+
+def fromFile(f="data.dat",rev=True,enough=0.66):
+  "utility for reading sample data from disk"
+  import re
+  cache = {} 
+  num, space = r'^\+?-?[0-9]', r'[ \t\n]+'
+  for line in open(f): 
+    line = line.strip()
+    if line:
+      for word in re.split(space,line):
+        if re.match(num,word[0]):
+          cache[now] += [float(word)]
+        else:
+          now  = word
+          cache[now] = [now]
+  rdivDemo(cache.values()) 
+
+
+if __name__=='__main__':
+  fromFile()
+
