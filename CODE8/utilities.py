@@ -5,7 +5,7 @@ import random
 import math
 import time
 from functools import reduce
-from pdb improt set_trace
+from pdb import set_trace
 import bisect
 
 sys.dont_write_bytecode = True
@@ -99,10 +99,10 @@ class Num():
         for _ in inits:
             self.add(_)
 
-   def standardDeviation(self):
-       return (math.sqrt(self.m2)/(self.n - 1))
-  
-   def add(self, x):
+    def standardDeviation(self):
+        return (math.sqrt(self.m2)/(self.n - 1))
+ 
+    def add(self, x):
        self._median = None
        self.n += 1
        self.inList.append(x)
@@ -120,7 +120,7 @@ class Num():
         n = int(len(xs)*0.25)
         return p(n), p(2*n), p(3*n)
              
-
+  
     def median(self):
         if not self._median:
             self.inList.sort()

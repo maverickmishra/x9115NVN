@@ -65,7 +65,7 @@ class DTLZ7(Model):
             f.append(self.x[i])
         f.append( (1+self.g()) * self.h() )
         #f[self.M - 1] = (1 + self.g())*self.h()
-        print "^^^^^^^",f
+        #print "^^^^^^^",f
         #print "len", len(f)
         return f
         

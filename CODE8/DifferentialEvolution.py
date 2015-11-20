@@ -3,17 +3,18 @@ import math
 import random
 import copy
 import numpy
+import utilities
 
 def DifferentialEvolution(model):
     print "Model: ",model.__name__
 
     F=0.75
     CR=0.3
-    maxtries=10
-    NumCandidates=100
+    maxtries=50
+    NumCandidates=10
     best=model()
     candidates=[best]
-#    print "First Candidate Value:",candidates[0].x
+    
     lives = 5 
     currentEra = []
     previousEra = []
@@ -33,13 +34,11 @@ def DifferentialEvolution(model):
             tmp.remove(i)
             while True:
                 choice=numpy.random.choice(tmp,3)
-                #print "choice",choice
                 X = candidates[choice[0]]
                 Y = candidates[choice[1]]
                 Z = candidates[choice[2]]
                 
                 old=candidates[i]
-                #print "~~~~old",old.x
                 r=random.randint(0,old.decisions-1)
                 new=model()
                 for j in range(old.decisions):
@@ -48,55 +47,35 @@ def DifferentialEvolution(model):
                     else:
                         new.x[j]=old.x[j]
                 if new.constraints(): break
-            if new.eval()<best.eval():
+            if type1(new, best):
                 best=copy.deepcopy(new)
-                printList.append("!")
-                printList.append (str(best.x)) ##New Best Found
-            elif new.eval()<old.eval():
-                printList.append("+")
-            #elif new.eval()==old.eval():
-            #    printList.append("?")
-            else:
+            elif (not type1(new, old)):
                 new=old
-            #    printList.append(".")
-            # print "~~~~new",new.x
             yield new,best
 
     for tries in range(maxtries):
-        # printList = []
-        # print "Try %02d"%(tries+1),
-        # print "|",
         newcandidates = []
         for new,best in mutate(candidates,F,CR,best):
             newcandidates.append(new)
         candidates = newcandidates
+        currentEra = [_.x for _ in newcandidates]
         if (previousEra != []):
-            currentEra = list(newcandidates)
             lives += type2(previousEra, currentEra)
             if (lives <= 0):
-                return previousEra, sbest
-            else:
-                previousEra = list(currentEra)  
-                currentEra = []
+                return previousEra, best.x
+        else:
+            previousEra = list(currentEra)  
+            currentEra = []
 
-        # print "!=%02d" %printList.count("!"),"+=%02d" %printList.count("+"),".=%02d" %printList.count("."),
-        # print "|",
-        # print "".join(printList),
-
-#        print("")
-#    print "---------------------"
-#    print "Best solutions: "
-#    print "---------------------"
-#    for value in best.x: 
-#        print value
-    return previousEra, best
+    return previousEra, best.x
 
 
 def type1(model1, model2):
     return (model1.eval() < model2.eval())
     
 def type2(list1, list2):
-    if (a12(list1, list2) <= 0.56):
+
+    if (utilities.a12(list1, list2) <= 0.56):
         return -1
-    else
+    else:
         return 5

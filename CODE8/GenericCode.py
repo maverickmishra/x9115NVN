@@ -16,12 +16,14 @@ if __name__ == '__main__':
     #for model in [DTLZ7,Schaffer,Kursawe,Osyczka2,Golinski]:
     for model in [DTLZ7]:
 
-        for Algorithm in [sa, mws, de]:
+        for Algorithm in [sa, mws, de]: 
             print "###################################################################################"
             print "Algorithm: %s " %Algorithm.__name__
             print "Model    : %s " %model.__name__
             print "###################################################################################"
-            Algorithm(model)
+            era, solution = Algorithm(model)
+            print "Final Era ", era
+            print "Best Solution ", solution 
             print "###################################################################################"
             
 
