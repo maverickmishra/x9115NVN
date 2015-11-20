@@ -13,12 +13,16 @@ def DifferentialEvolution(model):
     NumCandidates=100
     best=model()
     candidates=[best]
-    print "First Candidate Value:",candidates[0].x
+#    print "First Candidate Value:",candidates[0].x
+    lives = 5 
+    currentEra = []
+    previousEra = []
+    eraLength = 10
     
     for i in range(1,NumCandidates):
         candidate=model()
         candidates.append(candidate)
-        if candidate.eval()<best.eval():
+        if type1(candidate, best):
             best=copy.deepcopy(candidate)
     print "Number Of Candidates:", len(candidates)      
     print "Best Before TRIES in List of candidates:",best.x
@@ -54,27 +58,45 @@ def DifferentialEvolution(model):
             #    printList.append("?")
             else:
                 new=old
-                printList.append(".")
-            #print "~~~~new",new.x
+            #    printList.append(".")
+            # print "~~~~new",new.x
             yield new,best
 
     for tries in range(maxtries):
-        printList = []
-        print "Try %02d"%(tries+1),
-        print "|",
+        # printList = []
+        # print "Try %02d"%(tries+1),
+        # print "|",
         newcandidates = []
         for new,best in mutate(candidates,F,CR,best):
             newcandidates.append(new)
         candidates = newcandidates
-        print "!=%02d" %printList.count("!"),"+=%02d" %printList.count("+"),".=%02d" %printList.count("."),
-        print "|",
-        print "".join(printList),
+        if (previousEra != []):
+            currentEra = list(newcandidates)
+            lives += type2(previousEra, currentEra)
+            if (lives <= 0):
+                return previousEra, sbest
+            else:
+                previousEra = list(currentEra)  
+                currentEra = []
 
-        print("")
-    print "---------------------"
-    print "Best solutions: "
-    print "---------------------"
-    for value in best.x: 
-        print value
+        # print "!=%02d" %printList.count("!"),"+=%02d" %printList.count("+"),".=%02d" %printList.count("."),
+        # print "|",
+        # print "".join(printList),
+
+#        print("")
+#    print "---------------------"
+#    print "Best solutions: "
+#    print "---------------------"
+#    for value in best.x: 
+#        print value
+    return previousEra, best
 
 
+def type1(model1, model2):
+    return (model1.eval() < model2.eval())
+    
+def type2(list1, list2):
+    if (a12(list1, list2) <= 0.56):
+        return -1
+    else
+        return 5
