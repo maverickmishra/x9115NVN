@@ -14,21 +14,26 @@ def MaxWalkSat(model):
     threshold=-10000
     p=0.5
     step=10
-    count = 0
-    linewidth = 50
+    # count = 0
+    # linewidth = 50
+
+    lives = 5 
+    currentEra = []
+    previousEra = []
+    eraLength = 10
+
     for i in range(0,maxtries):
         s=model()
         if i==0:
             sbest=model()
             sbest=copy.deepcopy(s)
-        printList = []
+        # printList = []
         for j in range(0,maxchanges):
             eval+=1
-            if s.eval()<threshold:
-                print ""
-                print "The best solution is \n %s" %s.x
-
-                return True
+            if s.eval()<threshold and len(previousEra) == eraLength:
+                # print ""
+                # print "The best solution is \n %s" %s.x
+                return previousEra, sbest
 
             which=random.randint(0,s.decisions-1)
             score_old=s.eval()
@@ -36,18 +41,32 @@ def MaxWalkSat(model):
                 s=neighbor(s,which,model)
             else:
                 s=optc(s,which,step,model)
-            if s.eval()<sbest.eval():
+
+            if type1(s, sbest):
                 sbest=copy.deepcopy(s)
                 evalx=eval
-                printList.append("!")  
-            elif s.eval()<score_old:
-                printList.append("+")  
-            elif s.eval()==score_old:
-                printList.append("?") 
-            else:
-                printList.append(".") 
+                # printList.append("!")  
+            # elif s.eval()<score_old:
+                # printList.append("+")  
+            # elif s.eval()==score_old:
+                # printList.append("?") 
+            # else:
+            #    printList.append(".") 
 
-            count += 1
+            # count += 1
+            # Type 2 comparator
+            if (len(currentEra) < eraLength):
+                currentEra.append(s) 
+            else:
+                if (previousEra != []):
+                    lives += type2(previousEra, currentEra)
+                    if (lives <= 0):
+                        return previousEra, sbest
+                else:
+                    previousEra = list(currentEra)  
+                    currentEra = []
+
+            """
             if (count % linewidth == 0):        
         #if len(printList) == linewidth:
                 print "%04d," %count,
@@ -56,14 +75,27 @@ def MaxWalkSat(model):
                 print "  |",
                 print "".join(printList)
                 printList = []
+            """
+    """
     print "---------------------"
     print "Best solutions: "
     print "---------------------"
 
     for value in sbest.x: 
         print value
-
+    """
+    return previousEra, sbest
     
+def type1(model1, model2):
+    return (model1.eval() < model2.eval())
+    
+def type2(list1, list2):
+    if (a12(list1, list2) <= 0.56):
+        return -1
+    else
+        return 5
+
+
 def optc(s,index,step,model):
     sn=model()
     sn=copy.deepcopy(s)
