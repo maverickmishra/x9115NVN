@@ -4,11 +4,9 @@ import random
 import copy
 import sk
 
-random.seed(30)
 def MaxWalkSat(model):
     
-    print "Model ppp: ",model.__name__
-
+    # print "Model : ",model.__name__
     eval=0
     evalx=0
     maxtries=100
@@ -18,8 +16,10 @@ def MaxWalkSat(model):
     step=10
 
     lives = 5 
-    currentEra = []
-    previousEra = []
+    currentEra1 = []
+    currentEra2 = []
+    previousEra1 = []
+    previousEra2 = []
     eraLength = 10
 
     for i in range(0,maxtries):
@@ -29,7 +29,7 @@ def MaxWalkSat(model):
             sbest=copy.deepcopy(s)
         for j in range(0,maxchanges):
             eval+=1
-            if s.eval()<threshold and len(previousEra) == eraLength:
+            if s.eval()<threshold and len(previousEra1) == eraLength:
                 return previousEra, sbest.x
 
             which=random.randint(0,s.decisions-1)
@@ -43,19 +43,26 @@ def MaxWalkSat(model):
                 sbest=copy.deepcopy(s)
                 evalx=eval
 
-            # Type 2 comparator
-            if (len(currentEra) < eraLength):
-                currentEra.append(s.x) 
-            else:
-                if (previousEra != []):
-                    lives += type2(previousEra, currentEra)
-                    if (lives <= 0):
-                        return previousEra, sbest.x
-                else:
-                    previousEra = list(currentEra)  
-                    currentEra = []
 
-    return previousEra, sbest.x
+        # Type 2 comparator
+        if (len(currentEra1) < eraLength):
+            tempVal = s.getObjectives()
+            currentEra1.append(tempVal[0])
+            currentEra2.append(tempVal[1])
+ 
+        else:
+            if (previousEra1 != []):
+                lives += type2(previousEra1, currentEra1)
+                lives += type2(previousEra2, currentEra2)
+
+                if (lives <= 0):
+                    break
+            previousEra1 = list(currentEra1)  
+            previousEra2 = list(currentEra2)  
+            currentEra1 = []
+            currentEra2 = []
+
+    return sbest.x
     
 def type1(model1, model2):
     return (model1.eval() < model2.eval())

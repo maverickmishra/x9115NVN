@@ -6,7 +6,7 @@ from sk import rdivDemo
 
 #####################
 import random
-initSeed = 30
+initSeed = 55
 random.seed(initSeed)
 #####################
 
@@ -18,7 +18,7 @@ if __name__ == '__main__':
         for Algorithm in [sa, mws, de]: 
             tempList = []
             tempList.append(Algorithm.__name__[:3])
-            era, solution = Algorithm(model)
+            solution = Algorithm(model)
             print solution
             for _ in solution:
                 tempList.append(_)

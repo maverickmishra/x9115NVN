@@ -4,9 +4,8 @@ import random
 import copy
 import sk
 
-random.seed(30)
 def SimulatedAnnealing(model):
-    print "Model: ",model.__name__
+    # print "Model: ",model.__name__
     s=model()
     sb=model()
     sb=copy.deepcopy(s)
@@ -14,9 +13,11 @@ def SimulatedAnnealing(model):
     kMax=1000
     
     lives = 5 
-    currentEra = []
-    previousEra = []
-    eraLength = 10
+    currentEra1 = []
+    currentEra2 = []
+    previousEra1 = []
+    previousEra2 = []
+    eraLength = 25
     
     while (k <= kMax):
         sn=neighbor(s,random.randint(0,s.decisions-1),model)
@@ -31,17 +32,24 @@ def SimulatedAnnealing(model):
         k = k + 1
        
         # Type 2 comparator
-        if (len(currentEra) < eraLength):
-            currentEra.append(s.x) 
+        if (len(currentEra1) < eraLength):
+            tempVal = s.getObjectives()
+            currentEra1.append(tempVal[0])
+            currentEra2.append(tempVal[1])
+ 
         else:
-            if (previousEra != []):
-                lives += type2(previousEra, currentEra)
+            if (previousEra1 != []):
+                lives += type2(previousEra1, currentEra1)
+                lives += type2(previousEra2, currentEra2)
+
                 if (lives <= 0):
                     break
-            previousEra = list(currentEra)  
-            currentEra = []
+            previousEra1 = list(currentEra1)  
+            previousEra2 = list(currentEra2)  
+            currentEra1 = []
+            currentEra2 = []
                   
-    return previousEra, sb.x
+    return sb.x
 
 def type1(model1, model2):
     return (model1.eval() < model2.eval())

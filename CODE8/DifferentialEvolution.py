@@ -5,22 +5,23 @@ import copy
 import numpy
 import sk
 
-random.seed(30)
-
 def DifferentialEvolution(model):
-    print "Model: ",model.__name__
+    # print "Model: ",model.__name__
 
     F=0.75
     CR=0.3
-    maxtries=50
-    NumCandidates=10
+    maxtries=10
+    NumCandidates=100
     best=model()
     candidates=[best]
     
-    lives = 5 
-    currentEra = []
-    previousEra = []
-    eraLength = 10
+    lives = 5
+    currentEra1 = []
+    currentEra2 = []
+    previousEra1 = []
+    previousEra2 = []
+    eraLength = 1*NumCandidates
+
     
     for i in range(1,NumCandidates):
         candidate=model()
@@ -60,16 +61,25 @@ def DifferentialEvolution(model):
         for new,best in mutate(candidates,F,CR,best):
             newcandidates.append(new)
         candidates = newcandidates
-        currentEra = [_.x for _ in newcandidates]
-        if (previousEra != []):
-            lives += type2(previousEra, currentEra)
-            if (lives <= 0):
-                return previousEra, best.x
-        else:
-            previousEra = list(currentEra)  
-            currentEra = []
 
-    return previousEra, best.x
+        for _ in newcandidates:
+            tempVal = _.getObjectives()
+            currentEra1.append(tempVal[0])
+            currentEra2.append(tempVal[1])             
+
+        if (len(currentEra1) >= eraLength):
+            if (previousEra1 != []):
+                lives += type2(previousEra1, currentEra1)
+                lives += type2(previousEra2, currentEra2)
+                if (lives <= 0):
+                    return best.x
+            previousEra1 = list(currentEra1)
+            previousEra2 = list(currentEra2)
+            currentEra1 = []
+            currentEra2 = []
+        
+
+    return best.x
 
 
 def type1(model1, model2):
