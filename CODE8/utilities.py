@@ -10,6 +10,7 @@ import bisect
 
 sys.dont_write_bytecode = True
 
+random.seed(30)
 
 #class o to be written 
 class o(object):

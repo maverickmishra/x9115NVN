@@ -2,7 +2,7 @@ from Model import DTLZ7,Schaffer,Osyczka2,Kursawe,Golinski
 from SimulatedAnnealing import SimulatedAnnealing as sa
 from MaxWalkSat import MaxWalkSat as mws
 from DifferentialEvolution import DifferentialEvolution as de
-from utilities import rdivDemo 
+from sk import rdivDemo 
 
 #####################
 import random
@@ -19,6 +19,7 @@ if __name__ == '__main__':
             tempList = []
             tempList.append(Algorithm.__name__[:3])
             era, solution = Algorithm(model)
+            print solution
             for _ in solution:
                 tempList.append(_)
             rdivInput.append(tempList)

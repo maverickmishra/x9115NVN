@@ -3,7 +3,9 @@ import math
 import random
 import copy
 import numpy
-import utilities
+import sk
+
+random.seed(30)
 
 def DifferentialEvolution(model):
     print "Model: ",model.__name__
@@ -75,7 +77,7 @@ def type1(model1, model2):
     
 def type2(list1, list2):
 
-    if (utilities.a12(list1, list2) <= 0.56):
+    if (sk.a12(list1, list2) <= 0.56):
         return -1
     else:
         return 5

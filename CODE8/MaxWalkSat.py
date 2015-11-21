@@ -2,11 +2,12 @@ import Model
 import math
 import random
 import copy
-import utilities
+import sk
 
+random.seed(30)
 def MaxWalkSat(model):
     
-    print "Model: ",model.__name__
+    print "Model ppp: ",model.__name__
 
     eval=0
     evalx=0
@@ -60,7 +61,7 @@ def type1(model1, model2):
     return (model1.eval() < model2.eval())
     
 def type2(list1, list2):
-    if (utilities.a12(list1, list2) <= 0.56):
+    if (sk.a12(list1, list2) <= 0.56):
         return -1
     else:
         return 5
