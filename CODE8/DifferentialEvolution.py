@@ -25,8 +25,8 @@ def DifferentialEvolution(model):
         candidates.append(candidate)
         if type1(candidate, best):
             best=copy.deepcopy(candidate)
-    print "Number Of Candidates:", len(candidates)      
-    print "Best Before TRIES in List of candidates:",best.x
+    # print "Number Of Candidates:", len(candidates)      
+    # print "Best Before TRIES in List of candidates:",best.x
     
     def mutate(candidates,F,CR,best):
         for i in range(len(candidates)):

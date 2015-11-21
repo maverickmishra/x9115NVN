@@ -1,9 +1,8 @@
-
 from Model import DTLZ7,Schaffer,Osyczka2,Kursawe,Golinski
 from SimulatedAnnealing import SimulatedAnnealing as sa
 from MaxWalkSat import MaxWalkSat as mws
 from DifferentialEvolution import DifferentialEvolution as de
-
+from utilities import rdivDemo 
 
 #####################
 import random
@@ -15,15 +14,14 @@ random.seed(initSeed)
 if __name__ == '__main__':
     #for model in [DTLZ7,Schaffer,Kursawe,Osyczka2,Golinski]:
     for model in [DTLZ7]:
-
+        rdivInput = []
         for Algorithm in [sa, mws, de]: 
-            print "###################################################################################"
-            print "Algorithm: %s " %Algorithm.__name__
-            print "Model    : %s " %model.__name__
-            print "###################################################################################"
+            tempList = []
+            tempList.append(Algorithm.__name__[:3])
             era, solution = Algorithm(model)
-            print "Final Era ", era
-            print "Best Solution ", solution 
-            print "###################################################################################"
+            for _ in solution:
+                tempList.append(_)
+            rdivInput.append(tempList)
+    rdivDemo(rdivInput)
             
 

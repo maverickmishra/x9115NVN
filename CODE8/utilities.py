@@ -95,7 +95,7 @@ class Num():
         self.mu = 0
         self.inList = []
         self._median = None
-        self.name = name
+        self.Name = name
         for _ in inits:
             self.add(_)
 
@@ -103,6 +103,7 @@ class Num():
         return (math.sqrt(self.m2)/(self.n - 1))
  
     def add(self, x):
+       type(x)
        self._median = None
        self.n += 1
        self.inList.append(x)
@@ -137,9 +138,9 @@ class Num():
         if (len(self.inList) <= 1):
             return 0
         if (len(self.inList) == 2):
-            return i.inList[1] - i.inList[0]
+            return self.inList[1] - self.inList[0]
         else:
-            return i.inList[int(n2)] - self.inList[int(n1)]
+            return self.inList[int(n2)] - self.inList[int(n1)]
  
 
 
@@ -178,15 +179,15 @@ def sampleWithReplacement(inputList):
 def testStatistic(numContainer1, numContainer2):
     meanDiffSquared1 = 0
     meanDiffSquared2 = 0
-    for _ in numContainer1.inList:
+    for _ in numContainer1.All:
         meanDiffSquared1 += (_ - numContainer1.mu) ** 2
-    for _ in numContainer2.inList:
+    for _ in numContainer2.All:
         meanDiffSquared2 += (_ - numContainer2.mu) ** 2
     standardDeviation1 = math.sqrt(meanDiffSquared1*1.0/(numContainer1.n-1))
     standardDeviation2 = math.sqrt(meanDiffSquared2*1.0/(numContainer2.n-1))
     delta = numContainer1.mu - numContainer2.mu
     if (standardDeviation1 + standardDeviation2):
-        delta = delta/math.sqrt(standardDeviation1/numContainer1 + standardDeviation2/numContainer2)   
+        delta = delta/math.sqrt(standardDeviation1/numContainer1.n + standardDeviation2/numContainer2.n)   
     return delta
 
 def bootstrap(inList1, inList2, conf=0.01, boot=1000):
@@ -197,7 +198,7 @@ def bootstrap(inList1, inList2, conf=0.01, boot=1000):
             self.mu = 0
             self.All=[]
             
-            for _ in some:
+            for _ in inList:
                 self.put(_)
         def put(self,x):
             self.All.append(x)
@@ -205,8 +206,8 @@ def bootstrap(inList1, inList2, conf=0.01, boot=1000):
             self.n += 1
             self.mu = self.sum*1.0/self.n
         
-        def __add__(inList1, inList2):
-            return total(inList1 + inList2)
+        def __add__(self, other):
+            return total(self.All + other.All)
 
     y = total(inList1)
     z = total(inList2)
@@ -220,7 +221,7 @@ def bootstrap(inList1, inList2, conf=0.01, boot=1000):
                           total(sampleWithReplacement(zhat))) > tobs):
  
             bigger += 1
-    return bigger/b < conf
+    return bigger/boot < conf
 
 def different(l1, l2):
   return a12(l2, l1) and bootstrap(l1, l2)
@@ -235,7 +236,7 @@ def scottknott(data,cohen=0.3,small=3, useA12=False,epsilon=0.01):
   all  = reduce(lambda x,y:x+y,data)
   same = lambda l,r: abs(l.median() - r.median()) <= all.s()*cohen
   if useA12: 
-    same = lambda l, r:   not different(l.all,r.all) 
+    same = lambda l, r:   not different(l.inList,r.inList) 
   big  = lambda    n: n > small    
   return rdiv(data,all,minMu,big,same,epsilon)
 
@@ -321,7 +322,7 @@ def rdivDemo(data):
     ranks += [(x.rank, x.median(), x)]
   all = []
   for _, __, x in sorted(ranks):
-    all += x.all
+    all += x.inList
   all = sorted(all)
   lo, hi = all[0], all[-1]
   line = "----------------------------------------------------"
@@ -331,8 +332,8 @@ def rdivDemo(data):
   for _, __, x in sorted(ranks):
     q1, q2, q3 = x.quartiles()
     print ('%4s , %12s ,    %0.2f  ,  %0.2f ' %
-           (x.rank + 1, x.name, x.median(), x.spread())) + \
-        xtile(x.all, lo=lo, hi=hi, width=30)
+           (x.rank + 1, x.Name, x.median(), x.spread())) + \
+        xtile(x.inList, lo=lo, hi=hi, width=30)
     last = x.rank
   return ranks
 
