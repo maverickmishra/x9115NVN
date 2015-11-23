@@ -72,14 +72,14 @@ def DifferentialEvolution(model):
                 lives += type2(previousEra1, currentEra1)
                 lives += type2(previousEra2, currentEra2)
                 if (lives <= 0):
-                    return best.x
+                    return best.x,best.eval()
             previousEra1 = list(currentEra1)
             previousEra2 = list(currentEra2)
             currentEra1 = []
             currentEra2 = []
         
 
-    return best.x
+    return best.x,best.eval()
 
 
 def type1(model1, model2):

@@ -49,7 +49,7 @@ def SimulatedAnnealing(model):
             currentEra1 = []
             currentEra2 = []
                   
-    return sb.x
+    return sb.x,sb.eval()
 
 def type1(model1, model2):
     return (model1.eval() < model2.eval())

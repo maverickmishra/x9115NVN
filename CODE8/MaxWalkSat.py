@@ -30,7 +30,7 @@ def MaxWalkSat(model):
         for j in range(0,maxchanges):
             eval+=1
             if s.eval()<threshold and len(previousEra1) == eraLength:
-                return previousEra, sbest.x
+                return sbest.x,sbest.eval()
 
             which=random.randint(0,s.decisions-1)
             score_old=s.eval()
@@ -62,7 +62,7 @@ def MaxWalkSat(model):
             currentEra1 = []
             currentEra2 = []
 
-    return sbest.x
+    return sbest.x,sbest.eval()
     
 def type1(model1, model2):
     return (model1.eval() < model2.eval())

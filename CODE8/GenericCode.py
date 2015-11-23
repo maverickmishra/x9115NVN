@@ -12,8 +12,8 @@ random.seed(initSeed)
 
 
 if __name__ == '__main__':
-    #for model in [DTLZ7,Schaffer,Kursawe,Osyczka2,Golinski]:
-    for model in [DTLZ7]:
+    for model in [DTLZ7,Schaffer,Kursawe,Osyczka2,Golinski]:
+    #for model in [DTLZ7]:
         rdivInput = []
         for Algorithm in [sa, mws, de]: 
             tempList = []
