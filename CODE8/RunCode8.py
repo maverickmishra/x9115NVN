@@ -5,9 +5,9 @@ from DifferentialEvolution import DifferentialEvolution as de
 from sk import rdivDemo 
 
 #####################
-import random
-initSeed = 55
-random.seed(initSeed)
+#import random
+#initSeed = 55
+#random.seed(initSeed)
 #####################
 
 
@@ -21,8 +21,7 @@ if __name__ == '__main__':
         for j in range(20):
             for Algorithm in [sa, mws, de]: 
                 print "Round:" , j
-                #tempList = []
-                #tempList.append(Algorithm.__name__[:3])
+
             
                 if Algorithm.__name__ == 'SimulatedAnnealing':
                     i = 0
@@ -32,6 +31,7 @@ if __name__ == '__main__':
                     i = 2
 
                 solution,enegry = Algorithm(model)
+                
                 print "------------------------------------------"
                 print "Model     : ",model.__name__
                 print "Algorithm : ",Algorithm.__name__
@@ -47,10 +47,6 @@ if __name__ == '__main__':
                 print "~~~~~~~~~~~~~~~~~~~~~"
                 print enegry
                 print "~~~~~~~~~~~~~~~~~~~~~"
-                #for _ in solution:
-                #    tempList.append(_)
-                #rdiv[i].append(en)
                 rdivInput[i].append(enegry)
         rdivDemo(rdivInput)
             
-
