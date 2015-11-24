@@ -5,9 +5,9 @@ from DifferentialEvolution import DifferentialEvolution as de
 from sk import rdivDemo 
 
 #####################
-#import random
-#initSeed = 55
-#random.seed(initSeed)
+import random
+initSeed = 30
+random.seed(initSeed)
 #####################
 
 

@@ -3,6 +3,7 @@ import math
 import random
 import copy
 import sk
+import loss
 
 def SimulatedAnnealing(model):
     # print "Model: ",model.__name__
@@ -13,10 +14,13 @@ def SimulatedAnnealing(model):
     kMax=1000
     
     lives = 5 
-    currentEra1 = []
-    currentEra2 = []
-    previousEra1 = []
-    previousEra2 = []
+    era0 = []
+    currentEra = []
+    previousEra = []
+    for _ in xrange(s.objectives):
+        currentEra.append([])
+        previousEra.append([])
+        era0.append([])
     eraLength = 25
     
     while (k <= kMax):
@@ -32,27 +36,43 @@ def SimulatedAnnealing(model):
         k = k + 1
        
         # Type 2 comparator
-        if (len(currentEra1) < eraLength):
+        if (len(currentEra[0]) < eraLength):
             tempVal = s.getObjectives()
-            currentEra1.append(tempVal[0])
-            currentEra2.append(tempVal[1])
+            for _ in xrange(0,len(tempVal)):
+                currentEra[_].append(tempVal[_])
  
         else:
-            if (previousEra1 != []):
-                lives += type2(previousEra1, currentEra1)
-                lives += type2(previousEra2, currentEra2)
+            if (previousEra[0] != []):
+                for _ in xrange(0,len(previousEra)):
+                    lives += type2(previousEra[_], currentEra[_])
 
                 if (lives <= 0):
-                    break
-            previousEra1 = list(currentEra1)  
-            previousEra2 = list(currentEra2)  
-            currentEra1 = []
-            currentEra2 = []
+                    break            
+
+            for _ in xrange(0,len(currentEra)):
+                previousEra[_] = list(currentEra[_])
+  
+            currentEra = []
+            for _ in xrange(0,len(previousEra)):
+                currentEra.append([])
                   
     return sb.x,sb.eval()
 
+def gt(x,y): return x > y
+def lt(x,y): return x < y
+
 def type1(model1, model2):
-    return (model1.eval() < model2.eval())
+    bettered = False
+    for i,(xi,yi) in enumerate(zip(model1.getObjectives(),model2.getObjectives())):
+        if lt(xi,yi):
+            bettered = True
+        elif (xi != yi): 
+            return False # not better and not equal, therefor worse
+    return bettered
+
+
+#def type1(model1, model2):
+#    return (model1.eval() < model2.eval())
     
 def type2(list1, list2):
     if (sk.a12(list1, list2) <= 0.56):

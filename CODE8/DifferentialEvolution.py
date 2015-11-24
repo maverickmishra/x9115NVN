@@ -16,10 +16,11 @@ def DifferentialEvolution(model):
     candidates=[best]
     
     lives = 5
-    currentEra1 = []
-    currentEra2 = []
-    previousEra1 = []
-    previousEra2 = []
+    currentEra = []
+    previousEra = []
+    for _ in xrange(best.objectives):
+        currentEra.append([])
+        previousEra.append([])
     eraLength = 1*NumCandidates
 
     
@@ -62,28 +63,41 @@ def DifferentialEvolution(model):
             newcandidates.append(new)
         candidates = newcandidates
 
-        for _ in newcandidates:
-            tempVal = _.getObjectives()
-            currentEra1.append(tempVal[0])
-            currentEra2.append(tempVal[1])             
-
-        if (len(currentEra1) >= eraLength):
-            if (previousEra1 != []):
-                lives += type2(previousEra1, currentEra1)
-                lives += type2(previousEra2, currentEra2)
+        if (len(currentEra[0]) < eraLength):
+            for tempVal in candidates:
+                temp = tempVal.getObjectives()
+                for _ in xrange(0,len(temp)):
+                    currentEra[_].append(temp[_])
+        else:
+            if (previousEra[0] != []):
+                for _ in xrange(0,len(previousEra)):
+                    lives += type2(previousEra[_], currentEra[_])
                 if (lives <= 0):
-                    return best.x,best.eval()
-            previousEra1 = list(currentEra1)
-            previousEra2 = list(currentEra2)
-            currentEra1 = []
-            currentEra2 = []
-        
+                    break
+            for _ in xrange(0,len(currentEra)):
+                previousEra[_] = list(currentEra[_])
+            currentEra = []
+
+            for _ in xrange(0,len(previousEra)):
+                currentEra.append([]) 
 
     return best.x,best.eval()
 
+def gt(x,y): return x > y
+def lt(x,y): return x < y
 
 def type1(model1, model2):
-    return (model1.eval() < model2.eval())
+    bettered = False
+    for i,(xi,yi) in enumerate(zip(model1.getObjectives(),model2.getObjectives())):
+        if lt(xi,yi):
+            bettered = True
+        elif (xi != yi): 
+            return False # not better and not equal, therefor worse
+    return bettered
+
+
+#def type1(model1, model2):
+#    return (model1.eval() < model2.eval())
     
 def type2(list1, list2):
 
