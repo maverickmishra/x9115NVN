@@ -9,7 +9,6 @@ class Model(object):
         self.decisions=0
         self.objectives=0
         self.x=[0]
-
     def eval(self):
         return sum(self.getObjectives())
 
@@ -29,10 +28,10 @@ class Model(object):
         return True
         
 class DTLZ7(Model):
-    def __init__(self):
-        self.objectives = self.M = 2 # No of objectives f[0]f[1],f[2],...,f[M-1]
-        self.decisions = self.K = 10 # decision variables  
-        self.n = self.M + self.K - 1 
+    def __init__(self,m=2,k=10):
+        self.objectives = self.M = m # No of objectives f[0]f[1],f[2],...,f[M-1]
+        self.decisions = self.K = k # decision variables  
+        self.n = self.M + self.K - 1  #n -> m + k -1
         self.domainMin = [0]*self.n
         self.domainMax = [1]*self.n
         self.x=[0]*self.n
@@ -68,7 +67,6 @@ class DTLZ7(Model):
         #print "^^^^^^^",f
         #print "len", len(f)
         return f
-        
         
     def eval(self):
         return sum(self.getObjectives())
@@ -205,3 +203,4 @@ def neighbor(s,index,model):
         sn.x[index]=random.uniform(sn.domainMin[index],sn.domainMax[index])
         if sn.constraints(): break
     return sn
+
