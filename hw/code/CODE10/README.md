@@ -31,7 +31,7 @@ Genetic Algorithm, mutation, crossover, Differential Evolution, Tuning
 ```     
 This is represented as show:      
 ![soemTExt](./img/GA_WORKING.png)
-DTLZ1_10decs_2objec
+
 #### Differential Evolution: 
    Differential Evolution is a method that optimizes a problem by iteratively trying to imporve a candidate solution with regards to a measure of quality. The algorithm can be optimized a large space of candidate solutions. DE does not use the gradient of the problem being optimized hence the problem need not be differentiable as is the case with classical optimization problems.
    DE optimizes a problem by maintaining a population of candidate solutions and creating new candidate solutions by combining existing ones according to its formula and keeping only those solutions which have the best score or fitness on the optimization problem. The optimization is treated as a black box that provides a measure of quality given a candidate solution and therefore does not need any gradient.
