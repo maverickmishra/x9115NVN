@@ -1,9 +1,11 @@
 # x9115NVN
 CSC 591 - MASE Repo
 
-Collaborators :   
-Nikhil Satish Pai   
-Nikhil Anand  
+#Collaborators :
+
+	>> Nikhil Satish Pai(npai)
+
+	>> Nikhil Anand(nanand2) 
 
 # CODE 9:   
 # Title: Simplified Standard Genetic Algorithm
