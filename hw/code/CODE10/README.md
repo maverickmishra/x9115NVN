@@ -82,6 +82,9 @@ This is represented as show:
   ![soemTExt](./img/DTLZ1_20decs_2objec.png)
   ![soemTExt](./img/DTLZ1_40decs_2objec.png)
 
+  For output of the other models please refer [results](https://github.com/maverickmishra/x9115NVN/blob/master/hw/code/CODE10/data/CODE10_DTLZ_RESULTS.log)
+
+
 ### Threats to Validity:   
 #### Conclusion validity
 We are using a DE algorithm to optimizer to select the parameters like mutation, crossover and the results show an improvement on the Fonseca model over GA with default parameters.
