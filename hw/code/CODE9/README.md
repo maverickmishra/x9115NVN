@@ -81,6 +81,7 @@ This is represented as show:
   We have executed the algorithm on DTLZ1,3,5,7 with decisions 10,20,40 and objectives 2,4,6,8 
   To compare the performance of each of the optimizers we have used the hypervolume as the measure. The each model was run 20 times, calculating the hypervolume for each run.
 
+ ![soemTExt](./img/CODE9_RESULTS.png)
 
 
 
