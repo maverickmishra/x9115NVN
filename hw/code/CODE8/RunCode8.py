@@ -1,3 +1,5 @@
+#!/usr/bin/env
+
 from Model import DTLZ7,Schaffer,Osyczka2,Kursawe,Golinski
 from SimulatedAnnealing import SimulatedAnnealing as sa
 from MaxWalkSat import MaxWalkSat as mws
