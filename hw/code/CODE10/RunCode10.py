@@ -105,8 +105,8 @@ if __name__ == '__main__':
                 fo.write('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n')
             
             ################
-                ID1 = (model.__name__+' untuned   ')#+str(decisions)+'-Decisions '+str(objectives)+'-Objectives') 
-                ID2 = (model.__name__+' tuned     ')#+str(decisions)+'-Decisions '+str(objectives)+'-Objectives') 
+                ID1 = (model.__name__+' untuned   ') 
+                ID2 = (model.__name__+' tuned     ')
 
 
                 rdivInput[rdivIndex].append(ID1)
