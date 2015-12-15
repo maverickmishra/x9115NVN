@@ -1,4 +1,4 @@
-REFERENCES:
+REFERENCE:
 1. Jan Malburg and Gordon Fraser. 2011. Combining search-based and constraint-based testing. In Proceedings of the 2011 26th IEEE/ACM International Conference on Automated Software Engineering (ASE '11). IEEE Computer Society, Washington, DC, USA, 436-439.DOI=10.1109/ASE.2011.6100092
 2. R. Sharma, M. Gligoric, V. Jagannath, and D. Marinov, “A Comparison of Constraint-Based and Sequence-Based Generation of Complex Input Data Structures,” 2nd Workshop on Constraints in Software Testing, Verification and Analysis, Apr. 2010.
 3. Juan   Pablo   Galeotti,   Nicolas   Rosner,   Carlos   G.   L.   Pombo,   and   Marcelo   F.   Frias.   2010.   Analysis  of   invariants   for   efficient   bounded   verification.   In   Proceedings   of   the   ACM  International Symposium on Software Testing and Analysis (ISSTA’10). 25–36.
