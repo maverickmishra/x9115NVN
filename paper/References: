@@ -1,0 +1,34 @@
+REFERENCES:
+1. Jan Malburg and Gordon Fraser. 2011. Combining search-based and constraint-based testing. In Proceedings of the 2011 26th IEEE/ACM International Conference on Automated Software Engineering (ASE '11). IEEE Computer Society, Washington, DC, USA, 436-439.DOI=10.1109/ASE.2011.6100092
+2. R. Sharma, M. Gligoric, V. Jagannath, and D. Marinov, “A Comparison of Constraint-Based and Sequence-Based Generation of Complex Input Data Structures,” 2nd Workshop on Constraints in Software Testing, Verification and Analysis, Apr. 2010.
+3. Juan   Pablo   Galeotti,   Nicolas   Rosner,   Carlos   G.   L.   Pombo,   and   Marcelo   F.   Frias.   2010.   Analysis  of   invariants   for   efficient   bounded   verification.   In   Proceedings   of   the   ACM  International Symposium on Software Testing and Analysis (ISSTA’10). 25–36.
+4. K.   Inkumsah   and   T.   Xie,   “Improving   Structural   Testing   of   Object­   Oriented   Programs   via   Integrating  Evolutionary   Testing   and   Symbolic   Execution,”   Proc.   IEEE/ACM   Int’l   Conf.Automated   Software   Eng.,  pp. 297­306, 2008 
+5. M.   Staats   and   C.   S.   Pasareanu.   Parallel   symbolic   execution   for   structural   test   generation.   In   Proceedings  of   the   Nineteenth   International   Symposium   on   Software   Testing   and   Analysis   (ISSTA   2010),   pages  183–194, 2010.
+6. Y. Pavlov and G. Fraser, “Semi-automatic Search-Based Test Generation,” in 5th International Workshop on Search-Based Software Testing (SBST’12) at ICST’12, 2012, pp. 777-784.
+7. Jeremias   Rossler,   Andreas   Zeller,   Gordon   Fraser,   Cristian   Zamfir,   George   Candea,   "Reconstructing   Core  Dumps",   ​ICST ​,   2013,   2013   IEEE   Sixth   International   Conference   on   Software   Testing,   Verification   and  Validation   (ICST   2013),   2013   IEEE   Sixth   International   Conference   on   Software   Testing,   Verification   and  Validation (ICST 2013) 2013, pp. 114­123, doi:10.1109/ICST.2013.18.
+8. Kevin Salvesen, Juan P. Galeotti, Florian Gross, Gordon Fraser, and Andreas Zeller. 2015. Using dynamic symbolic execution to generate inputs in search-based GUI testing. In Proceedings of the Eighth International Workshop on Search-Based Software Testing (SBST '15). IEEE Press, Piscataway, NJ, USA,32-35.  
+9. M. Harman, "The Current State and Future of Search Based Software Engineering," Proc. Int',l Conf. Future of Software Eng. 2007, pp. 342-357, 2007.
+10. P. McMinn, "Search-Based Software Testing: Past, Present and Future," The 4th International Workshop on Search-Based Software Testing (SBST'11), in conjunction with the 4th IEEE International Conference on Software Testing (ICST'11), 2011, pp. 153-16
+11. S. Bardin, B. Botella, F. Dadeau, F. Charreteur, A. Gotlieb, B. Marre, C. Michel, M. Rueher, and N. Williams, "Constraint-based software testing," Journée du GDR-GPL, vol. 9, 2009.
+12. M. Harman, L. Hu, R. Hierons, J. Wegener, H. Sthamer, A. Baresel and M. Roper, “Testability transformation,” IEEE Trans. Softw. Eng., vol. 30, pp. 3–16, January 2004.
+13. Gordon Fraser and Andrea Arcuri. 2011. EvoSuite: automatic test suite generation for object-oriented software. In Proceedings of the 19th ACM SIGSOFT symposium and the 13th European conference on Foundations of software engineering (ESEC/FSE '11). ACM, New York, NY, USA, 416-419. DOI=http://dx.doi.org.prox.lib.ncsu.edu/10.1145/2025113.2025179 
+14. Jeremias Rößler. 2012. How helpful are automated debugging tools?. In Proceedings of the First International Workshop on User Evaluation for Software Engineering Researchers (USER '12). IEEE Press, Piscataway, NJ, USA, 13-16. 
+15. K. Inkumsah and T. Xie, “Improving structural testing of object-oriented programs via integrating evolutionary testing and symbolic execution,” in Proceedings of the 2008 23rd IEEE/ACM International Conference on Automated Software Engineering (ASE’08). Washington, DC, USA: IEEE Computer Society, 2008, pp. 297–306.
+16. K. Lakhotia, N. Tillmann, M. Harman, and J. de Halleux, “FloPSy - search-based floating point constraint solving for symbolic execution,” in 22nd IFIP International Conference on Testing Software and Systems, ser. Lecture Notes in Computer Science. Springer Berlin / Heidelberg, 2010, pp. 142–157.
+17. R. Majumdar and K. Sen, “Hybrid concolic testing,” in Proceedings of the 29th International Conference on Software Engineering (ICSE’07). Washington, DC, USA: IEEE Computer Society, 2007, pp. 416–426.
+18. S. Khurshid, C. Pasareanu, and W. Visser, “Generalized symbolic execution for model checking and testing,” in Proc. 9th International Conference on Tools and Algorithms for Construction and Analysis of Systems (TACAS), 2003.
+19. W. Visser, C. S. Pasareanu, and R. Pelanek, “Test input generation for red-black trees using abstraction.” in Proc. 20th International Conference on Automated Software Engineering (ASE), 2005
+20. M. d’Amorim, C. Pacheco, T. Xie, D. Marinov, and M. D. Ernst, “An empirical comparison of automated generation and classification techniques for object-oriented unit testing,” in Proc. 21st International Conference on Automated Software Engineering (ASE), 2006.
+21. Khurshid, S., Marinov, D., Jackson, D., An analyzable annotation language. In OOPSLA 2002, pp. 231­245
+22. Vaziri, M., Jackson, D., Checking Properties of Heap­Manipulating Procedures with a Constraint Solver, in TACAS 2003, pp. 505­520
+23. Xie, Y., Aiken, A., Saturn: A scalable framework for error detection using Boolean satisfiability. in ACM TOPLAS, 29(3): (2007).
+24. P. Godefroid, N. Klarlund, and K. Sen, “DART: Directed automated random testing,” in Proc. ACM SIGPLAN 2005 Conference on Programming Language Design and Implementation, 2005, pp. 213–223
+25. C. Pacheco and M. D. Ernst, “Randoop: Feedback­directed random testing for Java,” in Companion to ACM SIGPLAN Conference on Object Oriented Programming Systems and Applications Companion, 2007, pp. 815–816.
+26. C. Oriat, “Jartege: A tool for random generation of unit tests for java classes,” .
+27. X. Xiao, T. Xie, N. Tillmann, and J. de Halleux. Precise identification of problems for structural test generation. In Proceedings of the 33rd International Conference on Software Engineering, ICSE ’11, pages 611–620, New York, NY, USA, 2011. ACM.
+28. G. Fraser and A. Arcuri. Sound empirical evidence in software testing. In ACM/IEEE International Conference on Software Engineering (ICSE), 2012. To appear.
+29. http://www.dc.uba.ar/inv/grupos/rfm_folder/TACO
+30. http://javapathfinder.sourceforge.net
+31. http://korat.sourceforge.net/
+32.
+33.
